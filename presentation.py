@@ -146,7 +146,7 @@ st.write(f"Найдено {len(filtered_df)} вакансий после при�
 st.dataframe(filtered_df)
 
 # Графики
-st.sidebar.header("Графики")
+st.markdown("<h1 style='text-align: center; font-size: 36px;'>Графики</h1>", unsafe_allow_html=True)
 
 st.subheader("Распределение по позициям")
 st.bar_chart(filtered_df['position'].value_counts())
