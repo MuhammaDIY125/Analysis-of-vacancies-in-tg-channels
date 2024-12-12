@@ -3,4 +3,3 @@ primaryColor = "#00BFFF"  # Нежный небесно-голубой для к
 backgroundColor = "#1C1C1C"  # Глубокий антрацит для фона
 secondaryBackgroundColor = "#2E2E2E"  # Умеренный тёмно-серый для боковой панели
 textColor = "#DCDCDC"  # Светло-серый для текста
-font = "monospace"  # Современный моноширинный шрифт
