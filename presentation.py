@@ -10,7 +10,7 @@ st.title("Анализ вакансий в тг каналах")
 
 file_choice = st.sidebar.selectbox(
     "Выберите файл для анализа:",
-    options=["df1_new.csv", "df2_new.csv"]
+    options=["IT_Jobs.csv", "UzDev_Jobs.csv"]
 )
 
 df = load_data(file_choice)
