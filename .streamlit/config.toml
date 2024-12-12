@@ -1,6 +1,6 @@
 [theme]
-primaryColor = "#1E90FF"  # Нежный синий для кнопок
-backgroundColor = "#2B2B2B"  # Тёмно-серый для фона
-secondaryBackgroundColor = "#383838"  # Немного светлее для боковой панели
-textColor = "#E0E0E0"  # Светлый текст
-font = "sans serif"  # Шрифт текста
+primaryColor = "#00BFFF"  # Нежный небесно-голубой для кнопок
+backgroundColor = "#1C1C1C"  # Глубокий антрацит для фона
+secondaryBackgroundColor = "#2E2E2E"  # Умеренный тёмно-серый для боковой панели
+textColor = "#DCDCDC"  # Светло-серый для текста
+font = "monospace"  # Современный моноширинный шрифт
