@@ -1,6 +1,0 @@
-[theme]
-primaryColor = "#4CAF50"  # Основной цвет (например, кнопки)
-backgroundColor = "#FFFFFF"  # Цвет фона
-secondaryBackgroundColor = "#F0F0F0"  # Цвет боковой панели
-textColor = "#333333"  # Цвет текста
-font = "sans serif"  # Шрифт текста (можно выбрать 'serif', 'sans serif', 'monospace')
