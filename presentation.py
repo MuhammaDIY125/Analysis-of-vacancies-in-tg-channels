@@ -20,11 +20,11 @@ st.title("Анализ вакансий в тг каналах")
 # Выбор файлов для анализа
 file_choice = st.sidebar.selectbox(
     "Выберите файл для анализа:",
-    options=["IT_Jobs.csv", "UzDev_Jobs.csv", "Объединённый"]
+    options=["IT_Jobs.csv", "UzDev_Jobs.csv", "All"]
 )
 
 # Логика загрузки
-if file_choice == "Объединённый":
+if file_choice == "All":
     df = merge_data(["IT_Jobs.csv", "UzDev_Jobs.csv"])
 else:
     df = load_data(file_choice)
