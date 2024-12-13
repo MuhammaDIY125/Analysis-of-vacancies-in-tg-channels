@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
 # Кэшируем загрузку данных
 @st.cache_data
@@ -28,7 +29,6 @@ if file_choice == "All":
     df = merge_data(["IT_Jobs.csv", "UzDev_Jobs.csv"])
 else:
     df = load_data(file_choice)
-
 
 df['skills_list'] = df['skills'].str.split(', ')
 
@@ -163,11 +163,27 @@ st.dataframe(filtered_df)
 # Графики
 st.markdown("<h1 style='text-align: center; font-size: 36px;'>Графики</h1>", unsafe_allow_html=True)
 
+# График для распределения по позициям
 st.subheader("Распределение по позициям")
-st.bar_chart(filtered_df['position'].value_counts())
+fig_positions = px.bar(filtered_df['position'].value_counts().reset_index(), x='index', y='position',
+                       labels={'index': 'Position', 'position': 'Count'},
+                       title='Распределение по позициям')
+fig_positions.update_layout(width=1000, height=600)  # Увеличиваем размер графика
+st.plotly_chart(fig_positions, use_container_width=True)
 
+# График для распределения по направлениям
 st.subheader("Распределение по направлениям")
-st.bar_chart(filtered_df['direction'].value_counts())
+fig_directions = px.bar(filtered_df['direction'].value_counts().reset_index(), x='index', y='direction',
+                        labels={'index': 'Direction', 'direction': 'Count'},
+                        title='Распределение по направлениям')
+fig_directions.update_layout(width=1000, height=600)  # Увеличиваем размер графика
+st.plotly_chart(fig_directions, use_container_width=True)
 
+# График для распределения по регионам
 st.subheader("Распределение по регионам")
-st.bar_chart(filtered_df['location'].value_counts())
+fig_locations = px.bar(filtered_df['location'].value_counts().reset_index(), x='index', y='location',
+                       labels={'index': 'Location', 'location': 'Count'},
+                       title='Распределение по регионам')
+
+fig_locations.update_layout(width=1000, height=600)  # Увеличиваем размер графика
+st.plotly_chart(fig_locations, use_container_width=True)
