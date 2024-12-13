@@ -165,25 +165,30 @@ st.markdown("<h1 style='text-align: center; font-size: 36px;'>Графики</h1
 
 # График для распределения по позициям
 st.subheader("Распределение по позициям")
-fig_positions = px.bar(filtered_df['position'].value_counts().reset_index(), x='index', y='position',
-                       labels={'index': 'Position', 'position': 'Count'},
+positions_count = filtered_df['position'].value_counts().reset_index()
+positions_count.columns = ['position', 'count']  # Переименуем столбцы
+fig_positions = px.bar(positions_count, x='position', y='count',
+                       labels={'position': 'Position', 'count': 'Count'},
                        title='Распределение по позициям')
 fig_positions.update_layout(width=1000, height=600)  # Увеличиваем размер графика
 st.plotly_chart(fig_positions, use_container_width=True)
 
 # График для распределения по направлениям
 st.subheader("Распределение по направлениям")
-fig_directions = px.bar(filtered_df['direction'].value_counts().reset_index(), x='index', y='direction',
-                        labels={'index': 'Direction', 'direction': 'Count'},
+directions_count = filtered_df['direction'].value_counts().reset_index()
+directions_count.columns = ['direction', 'count']  # Переименуем столбцы
+fig_directions = px.bar(directions_count, x='direction', y='count',
+                        labels={'direction': 'Direction', 'count': 'Count'},
                         title='Распределение по направлениям')
 fig_directions.update_layout(width=1000, height=600)  # Увеличиваем размер графика
 st.plotly_chart(fig_directions, use_container_width=True)
 
 # График для распределения по регионам
 st.subheader("Распределение по регионам")
-fig_locations = px.bar(filtered_df['location'].value_counts().reset_index(), x='index', y='location',
-                       labels={'index': 'Location', 'location': 'Count'},
+locations_count = filtered_df['location'].value_counts().reset_index()
+locations_count.columns = ['location', 'count']  # Переименуем столбцы
+fig_locations = px.bar(locations_count, x='location', y='count',
+                       labels={'location': 'Location', 'count': 'Count'},
                        title='Распределение по регионам')
-
 fig_locations.update_layout(width=1000, height=600)  # Увеличиваем размер графика
 st.plotly_chart(fig_locations, use_container_width=True)
