@@ -1,19 +1,34 @@
 import streamlit as st
 import pandas as pd
 
+# Кэшируем загрузку данных
 @st.cache_data
 def load_data(file_name):
     df = pd.read_csv(file_name)
     return df
 
+# Кэшируем объединение данных
+@st.cache_data
+def merge_data(files):
+    dfs = [pd.read_csv(file) for file in files]
+    combined_df = pd.concat(dfs, ignore_index=True)
+    return combined_df
+
+# Заголовок приложения
 st.title("Анализ вакансий в тг каналах")
 
+# Выбор файлов для анализа
 file_choice = st.sidebar.selectbox(
     "Выберите файл для анализа:",
-    options=["IT_Jobs.csv", "UzDev_Jobs.csv"]
+    options=["IT_Jobs.csv", "UzDev_Jobs.csv", "Объединённый"]
 )
 
-df = load_data(file_choice)
+# Логика загрузки
+if file_choice == "Объединённый":
+    df = merge_data(["IT_Jobs.csv", "UzDev_Jobs.csv"])
+else:
+    df = load_data(file_choice)
+
 
 df['skills_list'] = df['skills'].str.split(', ')
 
